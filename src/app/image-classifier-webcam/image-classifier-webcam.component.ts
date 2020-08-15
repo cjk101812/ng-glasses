@@ -28,18 +28,16 @@ export class ImageClassifierWebcamComponent implements OnInit, AfterViewInit {
 
   async ngAfterViewInit() {
     const vid = this.video.nativeElement;
-    console.log(this.video.nativeElement);
+
     if (navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true })
         .then((stream) => {
-          console.log(stream);
           vid.srcObject = stream;
+
         })
-        .catch((error) => {
-          console.log('Something went wrong! ', error);
+        .catch((err0r) => {
+          console.log('Something went wrong!');
         });
-    } else {
-      console.log("UH OH");
     }
   }
 
